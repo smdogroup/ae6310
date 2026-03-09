@@ -1,0 +1,17 @@
+# Core Sphinx
+sphinx>=7
+
+# Theme
+furo
+
+# Markdown support
+myst-parser
+
+# Notebook support
+nbsphinx
+ipykernel
+nbconvert
+jupyter-client
+
+# Extensions
+sphinxcontrib-programoutput
