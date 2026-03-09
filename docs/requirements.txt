@@ -13,7 +13,6 @@ ipykernel
 nbconvert
 jupyter
 jupyter-client
-pandoc
 
 # Extensions
 sphinxcontrib-programoutput
