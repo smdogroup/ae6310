@@ -1,0 +1,172 @@
+
+%%% Preamble Requirements %%%
+% \usepackage{geometry}
+% \usepackage{amsfonts}
+% \usepackage{amsmath}
+% \usepackage{amssymb}
+% \usepackage{tikz}
+
+% Optional packages such as sfmath set through python interface
+% \usepackage{sfmath}
+
+% \usetikzlibrary{arrows,chains,positioning,scopes,shapes.geometric,shapes.misc,shadows}
+
+%%% End Preamble Requirements %%%
+
+\input{"c:/Users/camer/anaconda3/lib/site-packages/pyxdsm/diagram_styles"}
+\begin{tikzpicture}
+
+\matrix[MatrixSetup]{
+%Row 0
+&
+\node [Optimization] (opt) {$\text{Optimizer}$};&
+\node [DataInter] (opt-aero_geo) {$x$};&
+\node [DataInter] (opt-struct_geo) {$x$};&
+\node [DataInter] (opt-struct_props) {$x$};&
+\node [DataInter] (opt-aero) {$x$};&
+&
+&
+&
+\\
+%Row 1
+&
+&
+\node [Function] (aero_geo) {$G_{A}$};&
+&
+&
+&
+&
+\node [DataInter] (aero_geo-transfer_f) {$x_{A0}$};&
+&
+\node [DataInter] (aero_geo-transfer_u) {$x_{A0}$};\\
+%Row 2
+&
+&
+&
+\node [Function] (struct_geo) {$G_{S}$};&
+&
+&
+&
+&
+\node [DataInter] (struct_geo-struct) {$x_{S}$};&
+\\
+%Row 3
+&
+&
+&
+&
+\node [Function] (struct_props) {$P_{S}$};&
+&
+&
+&
+\node [DataInter] (struct_props-struct) {$x_{B}$};&
+\\
+%Row 4
+\node [DataIO] (left_output_aero) {$\Gamma$};&
+&
+&
+&
+&
+\node [MDA] (aero) {$A$};&
+\node [DataInter] (aero-force) {$\Gamma$};&
+&
+&
+\\
+%Row 5
+&
+&
+&
+&
+&
+&
+\node [Function] (force) {$F$};&
+\node [DataInter] (force-transfer_f) {$f_{A}$};&
+&
+\\
+%Row 6
+&
+&
+&
+&
+&
+&
+&
+\node [Function] (transfer_f) {$T_{F}$};&
+\node [DataInter] (transfer_f-struct) {$f_{S}$};&
+\\
+%Row 7
+\node [DataIO] (left_output_struct) {$u_{S}$};&
+&
+&
+&
+&
+&
+&
+&
+\node [MDA] (struct) {$S$};&
+\node [DataInter] (struct-transfer_u) {$u_{S}$};\\
+%Row 8
+\node [DataIO] (left_output_transfer_u) {$x_{A}$};&
+&
+&
+&
+&
+\node [DataInter] (transfer_u-aero) {$x_A$};&
+\node [DataInter] (transfer_u-force) {$x_A$};&
+&
+&
+\node [Function] (transfer_u) {$T_{D}$};\\
+%Row 9
+&
+&
+&
+&
+&
+&
+&
+&
+&
+\\
+};
+
+% XDSM process chains
+
+
+\begin{pgfonlayer}{data}
+\path
+% Horizontal edges
+(aero_geo) edge [DataLine] (aero_geo-transfer_f)
+(aero_geo) edge [DataLine] (aero_geo-transfer_u)
+(opt) edge [DataLine] (opt-aero)
+(opt) edge [DataLine] (opt-aero_geo)
+(opt) edge [DataLine] (opt-struct_geo)
+(opt) edge [DataLine] (opt-struct_props)
+(struct_geo) edge [DataLine] (struct_geo-struct)
+(struct_props) edge [DataLine] (struct_props-struct)
+(aero) edge [DataLine] (aero-force)
+(force) edge [DataLine] (force-transfer_f)
+(transfer_f) edge [DataLine] (transfer_f-struct)
+(struct) edge [DataLine] (struct-transfer_u)
+(transfer_u) edge [DataLine] (transfer_u-aero)
+(transfer_u) edge [DataLine] (transfer_u-force)
+(aero) edge [DataLine] (left_output_aero)
+(struct) edge [DataLine] (left_output_struct)
+(transfer_u) edge [DataLine] (left_output_transfer_u)
+% Vertical edges
+(aero_geo-transfer_f) edge [DataLine] (transfer_f)
+(aero_geo-transfer_u) edge [DataLine] (transfer_u)
+(opt-aero) edge [DataLine] (aero)
+(opt-aero_geo) edge [DataLine] (aero_geo)
+(opt-struct_geo) edge [DataLine] (struct_geo)
+(opt-struct_props) edge [DataLine] (struct_props)
+(struct_geo-struct) edge [DataLine] (struct)
+(struct_props-struct) edge [DataLine] (struct)
+(aero-force) edge [DataLine] (force)
+(force-transfer_f) edge [DataLine] (transfer_f)
+(transfer_f-struct) edge [DataLine] (struct)
+(struct-transfer_u) edge [DataLine] (transfer_u)
+(transfer_u-aero) edge [DataLine] (aero)
+(transfer_u-force) edge [DataLine] (force);
+\end{pgfonlayer}
+
+\end{tikzpicture}
