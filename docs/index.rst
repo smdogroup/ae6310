@@ -5,8 +5,35 @@ Welcome to AE6310: Optimization for the Design of Engineered Systems.
 
 AE6310 is about the application of numerical optimization methods to the design of engineering systems.
 
+Recommended references
+**********************
+
+I recommend the following reference textbooks for further information about the course material:
+
+1. `Engineering Design Optimization <https://mdobook.github.io/>`, J.R.R.A. Martins and A. Ning
+
+2. `Numerical Optimization <https://link.springer.com/book/10.1007/978-0-387-40065-5>`, J. Nocedal and S.J. Wright
+
+3. `Practical Methods of Optimization <https://onlinelibrary.wiley.com/doi/book/10.1002/9781118723203>`, R. Fletcher
+
+4. `Practical Optimization <https://epubs.siam.org/doi/book/10.1137/1.9781611975604>`, M.H. Wright, P.E. Gill, and W. Murray
+
+5. `Trust Region Methods <https://epubs.siam.org/doi/10.1137/1.9780898719857>`, A.R. Conn, N.I.M. Gould, and P.L. Toint
+
+6. `Convex Optimization <https://stanford.edu/~boyd/cvxbook/>`, S. Boyd and L. Vandenberghe
+
+7. Numerical Optimization Techniques for Engineering Design, G.N. Vanderplaats
+
+8. Multidisciplinary Design Optimization supported by Knowledge Based Engineering, Sobieski, Moris, and van Tooren
+
+Engineering Design using Optimization
+*************************************
+
+In this course, we will look at how to apply optimization methods to engineering problems.
+Below are two examples of complex design problems that are solved using numerical optimization methods.
+
 Aeroelastic example
-*******************
+-------------------
 
 Aircraft wings are flexible and deform under aerodynamic load, twisting and bending relative to their undeformed shape.
 The aerodynamic loads, in turn, depend on the deformed shape of the wing.
@@ -28,7 +55,7 @@ The following XDSM diagram is from the above aerostructural optimization problem
 
 
 Structural topology optimization example
-****************************************
+----------------------------------------
 
 In structural design you often do not know in advance the best structural shape or topology to meet design requirements.
 Topology optimization methods are designed to generate an optimized structure, free from restrictions on the shape or topology.
