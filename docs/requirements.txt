@@ -13,6 +13,7 @@ ipykernel
 nbconvert
 jupyter
 jupyter-client
+graphviz
 
 # Extensions
 sphinxcontrib-programoutput
