@@ -13,7 +13,7 @@
 
 %%% End Preamble Requirements %%%
 
-\input{"c:/Users/camer/anaconda3/lib/site-packages/pyxdsm/diagram_styles"}
+\input{"/Users/gkennedy9/git/pyXDSM/pyxdsm/diagram_styles"}
 \begin{tikzpicture}
 
 \matrix[MatrixSetup]{
